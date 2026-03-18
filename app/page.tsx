@@ -388,6 +388,19 @@ export default function MeetFlow() {
           <TabsContent value="common">
             <div className="mb-5">
               <h2 className="text-base font-semibold">共同空閒時間</h2>
+              <Button
+                className="mt-3"
+                onClick={() => {
+                  if (commonSlots.length > 0) {
+                    const [d, h] = commonSlots[0].split("-").map(Number);
+                    alert(`建議會議時間：${DAYS[d]} ${h}:00`);
+                  } else {
+                    alert("目前沒有共同空閒時間");
+                  }
+                }}
+              >
+                建議會議時間
+              </Button>
               <p className="text-sm text-muted-foreground mt-0.5">
                 所有 {members.length} 位成員都空閒的時段
               </p>
